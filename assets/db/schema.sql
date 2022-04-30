@@ -9,3 +9,10 @@ CREATE TABLE department (
    PRIMARY KEY (id)
 );
 
+CREATE TABLE roles (
+    id INT,
+    title VARCHAR(30),
+    salary DECIMAL,
+    FOREIGN KEY (department_id),
+    REFERENCES department(id)
+);
