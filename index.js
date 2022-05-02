@@ -26,6 +26,15 @@ const db = mysql.createConnection(
                 case 'view all employees':
                     db.query('SELECT * FROM employee', (err,res) => {
                         console.table(res);
+                        menu();
+                    })
+                break;
+            }
+            switch (answers.menuOpts){
+                case 'view all roles':
+                    db.query('SELECT * FROM roles', (err,res) => {
+                        console.table(res);
+                        menu();
                     })
                 break;
             }
