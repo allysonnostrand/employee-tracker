@@ -30,6 +30,18 @@ const db = mysql.createConnection(
                         })
                     break;
                 }
+                // switch (answers.menuOpts){
+                //     case 'add employee':
+                //         return addEmployee();
+                //         })
+                //     break;
+                // }
+                // switch (answers.menuOpts){
+                //     case 'update employee role':
+                            // return updateRole()
+                //         })
+                //     break;
+                // }
                 switch (answers.menuOpts){
                     case 'view all roles':
                         db.query('SELECT * FROM roles', (err,res) => {
@@ -38,6 +50,12 @@ const db = mysql.createConnection(
                         })
                     break;
                 }
+                // switch (answers.menuOpts){
+                //     case 'add role':
+                //          return addRole(); 
+                //         })
+                //     break;
+                // }
                 switch (answers.menuOpts){
                     case 'view all departments':
                         db.query('SELECT * FROM department', (err,res) => {
@@ -46,6 +64,11 @@ const db = mysql.createConnection(
                         })
                     break;
                 }
+                // switch (answers.menuOpts){
+                //     case 'add department':
+                            // return addDepartment();
+                //     break;
+                // }
             })
     }
 
