@@ -22,23 +22,31 @@ const db = mysql.createConnection(
                   name: 'menuOpts'
               }
           ]).then(answers =>{
-            switch (answers.menuOpts){
-                case 'view all employees':
-                    db.query('SELECT * FROM employee', (err,res) => {
-                        console.table(res);
-                        menu();
-                    })
-                break;
-            }
-            switch (answers.menuOpts){
-                case 'view all roles':
-                    db.query('SELECT * FROM roles', (err,res) => {
-                        console.table(res);
-                        menu();
-                    })
-                break;
-            }
-        })
+                switch (answers.menuOpts){
+                    case 'view all employees':
+                        db.query('SELECT * FROM employee', (err,res) => {
+                            console.table(res);
+                            menu();
+                        })
+                    break;
+                }
+                switch (answers.menuOpts){
+                    case 'view all roles':
+                        db.query('SELECT * FROM roles', (err,res) => {
+                            console.table(res);
+                            menu();
+                        })
+                    break;
+                }
+                switch (answers.menuOpts){
+                    case 'view all departments':
+                        db.query('SELECT * FROM department', (err,res) => {
+                            console.table(res);
+                            menu();
+                        })
+                    break;
+                }
+            })
     }
 
   menu();
