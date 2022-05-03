@@ -1,7 +1,7 @@
-INSERT INTO department (id, department_name)
-VALUES  (1,"testing"),
-        (2, "stuff"),
-        (3, "some more stuff");
+INSERT INTO department (department_name)
+VALUES  ("testing"),
+        ("stuff"),
+        ( "some more stuff");
 
 INSERT INTO roles (id, title, salary, department_id)
 VALUES  (10,"tester", 20.0, 1),
