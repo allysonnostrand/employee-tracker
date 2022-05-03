@@ -20,7 +20,7 @@ To run this application make sure to download the npm package inquirer, mysql2 a
 
 Here is a video demonstrating the applications functionality. 
 
-
+https://drive.google.com/file/d/1iYTKO80vIaqUBlZTH71ngb0Y_SUVHMxB/view
 
 ## License
 
