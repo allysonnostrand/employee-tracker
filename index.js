@@ -72,4 +72,45 @@ const db = mysql.createConnection(
             })
     }
 
+function addEmployee() {
+    inquirer.prompt(
+        [
+            {
+                type: 'input',
+                message: 'What is the employees first name?',
+                name: 'fName'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees last name?',
+                name: 'lName'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees role?',
+                name: 'fName'
+            },
+            {
+                type: 'list',
+                message: 'Who is the employees manager?',
+                choices: 
+                name: 'mName'
+            },
+        ]
+    )
+}
+
+function updateRole(){
+
+}
+
+function addRole(){
+
+}
+
+function addDepartment(){
+
+}
+
+
   menu();
