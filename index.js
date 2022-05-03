@@ -30,18 +30,16 @@ const db = mysql.createConnection(
                         })
                     break;
                 }
-                // switch (answers.menuOpts){
-                //     case 'add employee':
-                //         return addEmployee();
-                //         })
-                //     break;
-                // }
-                // switch (answers.menuOpts){
-                //     case 'update employee role':
-                            // return updateRole()
-                //         })
-                //     break;
-                // }
+                switch (answers.menuOpts){
+                    case 'add employee':
+                        return addEmployee();
+                    break;
+                }
+                switch (answers.menuOpts){
+                    case 'update employee role':
+                            return updateRole()
+                    break;
+                }
                 switch (answers.menuOpts){
                     case 'view all roles':
                         db.query('SELECT * FROM roles', (err,res) => {
@@ -70,40 +68,56 @@ const db = mysql.createConnection(
             })
     }
 
-// function addEmployee() {
-//     inquirer.prompt(
-//         [
-//             {
-//                 type: 'input',
-//                 message: 'What is the employees first name?',
-//                 name: 'fName'
-//             },
-//             {
-//                 type: 'input',
-//                 message: 'What is the employees last name?',
-//                 name: 'lName'
-//             },
-//             {
-//                 type: 'input',
-//                 message: 'What is the employees role?',
-//                 name: 'rId'
-//             },
-//             {
-//                 type: 'list',
-//                 message: 'What is the employees managers id?',
-//                 choices: ,
-//                 name: 'mId'
-//             },
-//         ]).then (res =>{
-//             db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)', [res.fName, res.lName, res.rId, res.mId], (err, data) =>{
-//                 console.log('employee added!');
-//                 menu();
-//             }) 
-//         })
-// // }
+function addEmployee() {
+    inquirer.prompt(
+        [
+            {
+                type: 'input',
+                message: 'What is the employees first name?',
+                name: 'fName'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees last name?',
+                name: 'lName'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees role id?',
+                name: 'rId'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees managers id?',
+                name: 'mId'
+            },
+        ]).then (res =>{
+            db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)', [res.fName, res.lName, res.rId, res.mId], (err, data) =>{
+                console.log('employee added!');
+                menu();
+            }) 
+        })
+}
 
 function updateRole(){
-
+    inquirer.prompt(
+        [
+            {
+                type: 'input',
+                message: 'Please enter employee id to update their role.',
+                name: 'empId'
+            },
+            {
+                type: 'input',
+                message: 'What is the employees new role id?',
+                name: 'upRole'
+            },
+        ]).then (res =>{
+            db.query('UPDATE employee SET role_id = ? WHERE id = ?', [res.upRole, res.empId], (err, data) =>{
+                console.log('new role set!');
+                menu();
+            })
+        })
 }
 
 function addRole(){
