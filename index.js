@@ -50,12 +50,10 @@ const db = mysql.createConnection(
                         })
                     break;
                 }
-                // switch (answers.menuOpts){
-                //     case 'add role':
-                //          return addRole(); 
-                //         })
-                //     break;
-                // }
+                switch (answers.menuOpts){
+                    case 'add role':
+                         return addRole();
+                }
                 switch (answers.menuOpts){
                     case 'view all departments':
                         db.query('SELECT * FROM department', (err,res) => {
@@ -88,24 +86,51 @@ const db = mysql.createConnection(
 //             {
 //                 type: 'input',
 //                 message: 'What is the employees role?',
-//                 name: 'fName'
+//                 name: 'rId'
 //             },
 //             {
 //                 type: 'list',
-//                 message: 'Who is the employees manager?',
+//                 message: 'What is the employees managers id?',
 //                 choices: ,
-//                 name: 'mName'
+//                 name: 'mId'
 //             },
-//         ]
-//     )
-// }
+//         ]).then (res =>{
+//             db.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)', [res.fName, res.lName, res.rId, res.mId], (err, data) =>{
+//                 console.log('employee added!');
+//                 menu();
+//             }) 
+//         })
+// // }
 
 function updateRole(){
 
 }
 
 function addRole(){
+    inquirer.prompt(
+        [
+            {
+                type: 'input',
+                message: 'What is the name of the role?',
+                name: 'rName'
+            },
+            {
+                type: 'input',
+                message: 'What is the salary?',
+                name: 'rolsal'
+            },
+            {
+                type: 'input',
+                message: 'What is the department id?',
+                name: 'roldep'
+            }
 
+        ]).then (res =>{
+            db.query('INSERT INTO roles (title, salary, department_id) VALUES (?,?,?)', [res.rName, res.rolsal, res.roldep], (err, data) =>{
+                console.log('role added!');
+                menu();
+            }) 
+        })
 }
 
 function addDepartment(){
